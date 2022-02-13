@@ -27,11 +27,25 @@ function submitBtn() {
   const inputPin = document.getElementById("input-num").value;
   const notifySuccess = document.getElementById("notify-success");
   const notifyFailed = document.getElementById("notify-failed");
-  if (generatePin == inputPin && generatePin != '') {
+  const actionLeft = document.querySelector(".action-left");
+  if (generatePin == inputPin && generatePin != "") {
     notifySuccess.style.display = "block";
     notifyFailed.style.display = "none";
+    actionLeft.style.display = "none";
   } else {
     notifySuccess.style.display = "none";
     notifyFailed.style.display = "block";
+    actionLeft.style.display = "block";
   }
 }
+//Handling Try left section
+const actionLeft = document.querySelector(".action-count");
+const tryAgain = document.querySelector(".action-left");
+const submitButton = document.querySelector(".submit-btn");
+submitButton.addEventListener("click", () => {
+  if (actionLeft.innerText > 0) {
+    actionLeft.innerText = parseInt(actionLeft.innerText) - 1;
+  } else {
+    tryAgain.innerText = "Please try again after 1 minute.";
+  }
+});
