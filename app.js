@@ -27,7 +27,7 @@ function submitBtn() {
   const inputPin = document.getElementById("input-num").value;
   const notifySuccess = document.getElementById("notify-success");
   const notifyFailed = document.getElementById("notify-failed");
-  if (generatePin == inputPin) {
+  if (generatePin == inputPin && generatePin != '') {
     notifySuccess.style.display = "block";
     notifyFailed.style.display = "none";
   } else {
